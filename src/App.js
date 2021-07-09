@@ -9,7 +9,6 @@ import NotFound from './components/NotFound';
 import ConfirmModal from './components/ConfirmModal';
 
 export default function App() {
-
 	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 	const [confirmMessage, setConfirmMessage] = useState("");
 	const [confirmButtonLabel, setConfirmButtonLabel] = useState("");
@@ -22,14 +21,14 @@ export default function App() {
 		setConfirmButtonLabel(buttonLabel);
 		setOnConfirm(() => handleConfirm);
         toggleConfirmModal();
-    }
+	}
 
 	return (
 		<React.Fragment>
 			<Navbar bg="success" variant="dark" sticky="top" expand="true" className="flex-md-nowrap">
-				<Navbar.Brand as={NavLink} className="ms-3" to="/">Nevernote</Navbar.Brand>
+				<Navbar.Brand as={NavLink} to="/" className="ms-3">Nevernote</Navbar.Brand>
 				<Nav>
-					<Nav.Link as={NavLink} className="float-end me-3" to="/settings">Settings</Nav.Link>
+					<Nav.Link as={NavLink} to="/settings" className="float-end me-3">Settings</Nav.Link>
 				</Nav>
 			</Navbar>
 			<div className="bg-light sidebar">
@@ -47,10 +46,10 @@ export default function App() {
 						<Home/>
 					</Route>
 					<Route path="/settings">
-						<Settings />
+						<Settings/>
 					</Route>
 					<Route path="/notes">
-						<NotesList startConfirm={startConfirm} />
+						<NotesList startConfirm={startConfirm}/>
 					</Route>
 					<Route path="*">
 						<NotFound/>

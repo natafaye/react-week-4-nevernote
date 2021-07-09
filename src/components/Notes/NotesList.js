@@ -26,7 +26,7 @@ export default function NotesList({ startConfirm }) {
 	const handleCreateNote = async () => {
         const note = await createNote({ title: "New Note", text: ""});
         await reloadNotes();
-        history.replace(`/notes/${note._id}/edit`);
+        history.push(`/notes/${note._id}/edit`);
 	}
 
 	const handleUpdateNote = async (note, newData) => {
@@ -36,7 +36,10 @@ export default function NotesList({ startConfirm }) {
 	}
 
     const handleStartDeleteNote = (note) => {
-        startConfirm(`Are you sure you want to delete ${note.title}?`, "Delete", () => handleDeleteNote(note))
+        startConfirm(
+            `Are you sure you want to delete ${note.title}?`, 
+            "Delete", 
+            () => handleDeleteNote(note))
     }
 
 	const handleDeleteNote = async (note) => {
@@ -64,7 +67,7 @@ export default function NotesList({ startConfirm }) {
             <div className="main inner-main px-2">
                 <Switch>
                     <Route path={`${match.path}/:noteId`}>
-                        <Note 
+                        <Note
                             getNoteById={getNoteById} 
                             onUpdateNote={handleUpdateNote} 
                             onDeleteNote={handleStartDeleteNote} />

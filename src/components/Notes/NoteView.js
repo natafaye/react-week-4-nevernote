@@ -12,7 +12,7 @@ export default function NoteView({ note }) {
                     <h2>{note.title}</h2>
                 </div>
                 <div className="col-3">
-                    <Button variant="warning" className="float-end" as={Link} to={match.url + "/edit"}>Edit</Button>
+                    <Button variant="warning" as={Link} to={match.url + "/edit"} className="float-end">Edit</Button>
                 </div>
             </div>
             <div className="row">
